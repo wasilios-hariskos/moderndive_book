@@ -537,7 +537,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="datacamp" class="section level3 unnumbered">
 <h3>DataCamp</h3>
 <p>Our approach to introducing data visualization via the Grammar of Graphics and the <code>ggplot2</code> package is very similar to the approach taken in <a href="https://twitter.com/drob">David Robinson’s</a> DataCamp course “Introduction to the Tidyverse,” a course targeted at people new to R and the tidyverse. If you’re interested in complementing your learning below in an interactive online environment, click on the image below to access the course. The relevant chapters of the course are Chapter 2 on “Data visualization” and Chapter 4 on “Types of visualizations.”</p>
-<p><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/introduction-to-the-tidyverse"><img src="images/datacamp_intro_to_tidyverse.png" style="height: 150px;"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="https://www.datacamp.com/courses/introduction-to-the-tidyverse"><img src="images/datacamp_intro_to_tidyverse.png" style="height: 150px;"/></a>
+</center>
 </div>
 <div id="grammarofgraphics" class="section level2">
 <h2><span class="header-section-number">3.1</span> The Grammar of Graphics</h2>
@@ -559,7 +561,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="gapminder" class="section level3">
 <h3><span class="header-section-number">3.1.2</span> Gapminder</h3>
 <p>In February 2006, a statistician named Hans Rosling gave a TED talk titled <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen">“The best stats you’ve ever seen”</a> where he presented global economic, health, and development data from the website <a href="http://www.gapminder.org/tools/#_locale_id=en;&amp;chart-type=bubbles">gapminder.org</a>. For example, from the 1704 countries included from 2007, consider only the first 6 countries when listed alphabetically:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-16">Table 3.1: </span>Gapminder 2007 Data: First 6 of 142 countries
 </caption>
@@ -711,7 +713,7 @@ Figure 3.1: Life Expectancy over GDP per Capita in 2007
 </ol>
 <p>Recall that <code>data</code> here corresponds to each of the variables being in the same <code>data</code> frame and the “data variable” corresponds to a column in a data frame.</p>
 <p>While in this example we are considering one type of <code>geom</code>etric object (of type <code>point</code>), graphics are not limited to just points. Some plots involve lines while others involve bars. Let’s summarize the three essential components of the grammar in a table:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-17">Table 3.2: </span>Summary of Grammar of Graphics for this plot
 </caption>
@@ -1247,7 +1249,7 @@ fruits_counted &lt;-<span class="st"> </span><span class="kw">data_frame</span>(
   <span class="dt">number =</span> <span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">2</span>)
 )</code></pre></div>
 <p>We see both the <code>fruits</code> and <code>fruits_counted</code> data frames represent the same collection of fruit. Whereas <code>fruits</code> just lists the fruit individually:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:fruits">Table 3.3: </span>Fruits
 </caption>
@@ -1287,7 +1289,7 @@ orange
 </tbody>
 </table>
 <p><code>fruits_counted</code> has a variable <code>count</code> which represents pre-counted values of each fruit.</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:fruitscounted">Table 3.4: </span>Fruits (Pre-Counted)
 </caption>
@@ -1362,7 +1364,7 @@ Figure 3.21: Number of flights departing NYC in 2013 by airline using geom_bar
 </div>
 <p>To get an understanding of what the names of these airlines are corresponding to these <code>carrier</code> codes, we can look at the <code>airlines</code> data frame in the <code>nycflights13</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">airlines</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -1509,7 +1511,7 @@ Mesa Airlines Inc.
 <span class="st">  </span><span class="kw">group_by</span>(carrier) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">number =</span> <span class="kw">n</span>())
 flights_table</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">

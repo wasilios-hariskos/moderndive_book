@@ -673,7 +673,7 @@ Figure 8.6: Step 3: Histogram of 10 values of <span class="math inline">\(\wideh
 <p>All told, 33 groups took samples. In other words, the shovel was used 33 times and 33 values of the sample proportion <span class="math inline">\(\widehat{p}\)</span> were computed; this data is saved in the <code>tactile_prop_red</code> data frame included in the <code>moderndive</code> package. Let’s display its contents in Table <a href="#tab:tactilered"><strong>??</strong></a>. Notice how the <code>replicate</code> column enumerates each of the 33 groups, <code>red_balls</code> is the count of balls in the sample of size <span class="math inline">\(n=50\)</span> that we red, and <code>prop_red</code> is the sample proportion <span class="math inline">\(\widehat{p}\)</span> that are red.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tactile_prop_red
 <span class="kw">View</span>(tactile_prop_red)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>
@@ -1180,7 +1180,7 @@ Figure 8.7: Sampling distribution of 33 sample proportions based on 33 tactile s
 <p>Recall from Section <a href="5-wrangling.html#summarize">5.4</a> the mean and the standard deviation are two summary statistics that would answer this question:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">tactile_prop_red <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">mean =</span> <span class="kw">mean</span>(prop_red), <span class="dt">sd =</span> <span class="kw">sd</span>(prop_red))</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>
@@ -1244,7 +1244,7 @@ sd
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">virtual_shovel &lt;-<span class="st"> </span>bowl <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rep_sample_n</span>(<span class="dt">size =</span> <span class="dv">50</span>)
 <span class="kw">View</span>(virtual_shovel)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-261">Table 8.1: </span>First 10 sampled balls of 50 in virtual sample
 </caption>
@@ -1378,7 +1378,7 @@ white
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">virtual_shovel <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">red =</span> <span class="kw">sum</span>(color <span class="op">==</span><span class="st"> &quot;red&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop_red =</span> red <span class="op">/</span><span class="st"> </span><span class="dv">50</span>)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-263">Table 8.2: </span>Count and proportion red in single virtual sample of size n = 50
 </caption>
@@ -1424,7 +1424,7 @@ prop_red
 <span class="st">  </span><span class="kw">summarize</span>(<span class="dt">red =</span> <span class="kw">sum</span>(color <span class="op">==</span><span class="st"> &quot;red&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">prop_red =</span> red <span class="op">/</span><span class="st"> </span><span class="dv">50</span>)
 <span class="kw">View</span>(virtual_prop_red)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>
@@ -1933,7 +1933,7 @@ Figure 8.13: Tactile shovel for sampling n = 100 balls
    &lt;dbl&gt;
 1 0.0457</code></pre>
 <p><strong>Comparison</strong>: Let’s compare the 3 standard errors we computed above in Table <a href="#tab:comparingn"><strong>??</strong></a>:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>

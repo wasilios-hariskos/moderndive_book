@@ -13,6 +13,7 @@ link-citations: yes
 colorlinks: yes
 lot: yes
 lof: yes
+always_allow_html: yes
 github-repo: moderndive/moderndive_book
 graphics: yes
 description: "An open-source and fully-reproducible electronic textbook bridging the gap between traditional introductory statistics and data science courses."
@@ -139,13 +140,24 @@ image_link <- function(path,
                        link,
                        html_opts = "height: 200px;",
                        latex_opts = "width=0.2\\textwidth",
-                       alt_text = ""){
+                       alt_text = "",
+                       centering = TRUE){
   if(knitr:::is_html_output()){
+    if(centering){
     glue::glue('
+      <center><a target="_blank" class="page-link" href="{link}"><img src="{path}" style="{html_opts}"/></a></center>')
+    } else {
+      glue::glue('
       <a target="_blank" class="page-link" href="{link}"><img src="{path}" style="{html_opts}"/></a>')
+    }
   }
   else if(knitr:::is_latex_output()){
-    glue::glue('\\href{{{link}}}{{\\includegraphics[{latex_opts}]{{{path}}}}}')
+    if(centering){
+      glue::glue('\\begin{{center}}
+        \\href{{{link}}}{{\\includegraphics[{latex_opts}]{{{path}}}}}
+        \\end{{center}}')
+    } else
+      glue::glue('\\href{{{link}}}{{\\includegraphics[{latex_opts}]{{{path}}}}}')
   }
   
 }
@@ -366,12 +378,12 @@ Click on the image for each course to access its webpage on [datacamp.com](https
 
 | Chapter | Topic | DataCamp Courses   
 | :-------------------------|:-------------------------|:-------------------------
-| 2 | Basic R programming concepts | `r image_link(path = "images/datacamp_intro_to_R.png", link = "https://www.datacamp.com/courses/free-introduction-to-r", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")` `r image_link(path = "images/datacamp_intermediate_R.png", link = "https://www.datacamp.com/courses/intermediate-r", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")`
-| 3 & 5 | Introductory data visualization and wrangling | `r image_link(path = "images/datacamp_intro_to_tidyverse.png", link = "https://www.datacamp.com/courses/introduction-to-the-tidyverse", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")`
-| 4 & 5 | Data "tidying" and intermediate data wrangling | `r image_link(path = "images/datacamp_working_with_data.png", link = "https://www.datacamp.com/courses/working-with-data-in-the-tidyverse", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")`
-| 6 & 7 | Data modeling, basic regression, and multiple regression | `r image_link(path = "images/datacamp_intro_to_modeling.png", link = "https://www.datacamp.com/courses/modeling-with-data-in-the-tidyverse", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")`
-| 9 & 10 | Statistical inference: confidence intervals and hypothesis testing | `r image_link(path = "images/datacamp_inference_for_numerical_data.png", link = "https://www.datacamp.com/courses/inference-for-numerical-data", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")` `r image_link(path = "images/datacamp_inference_for_categorical_data.png", link = "https://www.datacamp.com/courses/inference-for-categorical-data", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")`
-| 11 | Inference for regression | `r image_link(path = "images/datacamp_inference_for_regression.png", link = "https://www.datacamp.com/courses/inference-for-linear-regression", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth")`
+| 2 | Basic R programming concepts | `r image_link(path = "images/datacamp_intro_to_R.png", link = "https://www.datacamp.com/courses/free-introduction-to-r", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)` `r image_link(path = "images/datacamp_intermediate_R.png", link = "https://www.datacamp.com/courses/intermediate-r", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)`
+| 3 & 5 | Introductory data visualization and wrangling | `r image_link(path = "images/datacamp_intro_to_tidyverse.png", link = "https://www.datacamp.com/courses/introduction-to-the-tidyverse", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)`
+| 4 & 5 | Data "tidying" and intermediate data wrangling | `r image_link(path = "images/datacamp_working_with_data.png", link = "https://www.datacamp.com/courses/working-with-data-in-the-tidyverse", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)`
+| 6 & 7 | Data modeling, basic regression, and multiple regression | `r image_link(path = "images/datacamp_intro_to_modeling.png", link = "https://www.datacamp.com/courses/modeling-with-data-in-the-tidyverse", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)`
+| 9 & 10 | Statistical inference: confidence intervals and hypothesis testing | `r image_link(path = "images/datacamp_inference_for_numerical_data.png", link = "https://www.datacamp.com/courses/inference-for-numerical-data", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)` `r image_link(path = "images/datacamp_inference_for_categorical_data.png", link = "https://www.datacamp.com/courses/inference-for-categorical-data", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)`
+| 11 | Inference for regression | `r image_link(path = "images/datacamp_inference_for_regression.png", link = "https://www.datacamp.com/courses/inference-for-linear-regression", html_opts = "height: 150px;", latex_opts = "width=0.6\\textwidth", center=FALSE)`
 
 
 
@@ -452,10 +464,11 @@ Chester Ismay           |  Albert Y. Kim
 -->
 
 ```{r colophon, echo=FALSE, eval=FALSE}
+library(kableExtra)
 knitr::kable(devtools::session_info(needed_pkgs)$packages, 
              booktabs = TRUE,
              longtable = TRUE) %>% 
-  kableExtra::kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                             latex_options = c("HOLD_position"))
 ```
 
@@ -1005,7 +1018,7 @@ gapminder_2007 %>%
     caption = "Gapminder 2007 Data: First 6 of 142 countries", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1047,7 +1060,7 @@ map %>%
     caption = "Summary of Grammar of Graphics for this plot", 
     booktabs = TRUE
     ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1711,7 +1724,7 @@ weather %>%
   summarize(IQR = IQR(temp, na.rm=TRUE)) %>%
   arrange(desc(IQR)) %>%
   kable() %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1760,7 +1773,7 @@ kable(
     caption = "Fruits", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1773,7 +1786,7 @@ kable(
     caption = "Fruits (Pre-Counted)", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1819,7 +1832,7 @@ airlines
 ```
 ```{r, echo=FALSE}
 kable(airlines) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1836,7 +1849,7 @@ flights_table <- flights %>%
   group_by(carrier) %>% 
   summarize(number = n())
 kable(flights_table) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -2065,7 +2078,7 @@ if(knitr:::is_latex_output()){
       caption = "Summary of 5NG", 
       booktabs = TRUE
     ) %>% 
-     kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                    latex_options = c("HOLD_position")) %>%
      column_spec(3, width = "0.75in") %>%
      column_spec(4, width = "1.1in") %>%
@@ -2256,7 +2269,7 @@ stocks %>%
     caption = "Stock Prices (Non-Tidy Format)", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -2276,7 +2289,7 @@ stocks_tidy %>%
     caption = "Stock Prices (Tidy Format)", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -2295,7 +2308,7 @@ stocks %>%
     caption = "Date, Boeing Price, Weather Data", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -2589,7 +2602,9 @@ Below an example is given showing how to **join** the `airlines` data frame toge
 
 ```{r message=FALSE}
 library(dplyr)
-joined_flights <- inner_join(x = flights, y = airlines, by = "carrier")
+joined_flights <- inner_join(x = flights, 
+                             y = airlines, 
+                             by = "carrier")
 ```
 
 ```{r eval=FALSE}
@@ -2801,7 +2816,9 @@ To see many of these in action, let's select all flights that left JFK airport h
 
 ```{r, eval=FALSE}
 btv_sea_flights_fall <- flights %>% 
-  filter(origin == "JFK", (dest == "BTV" | dest == "SEA"), month >= 10)
+  filter(origin == "JFK", 
+         dest == "BTV" | dest == "SEA", 
+         month >= 10)
 View(btv_sea_flights_fall)
 ```
 
@@ -2856,6 +2873,7 @@ knitr::include_graphics("images/summarize1.png")
 
 ```{r sum2, echo=FALSE, fig.cap="Another summarize diagram from Data Wrangling with dplyr and tidyr cheatsheet", purl=FALSE}
 knitr::include_graphics("images/summary.png")
+options(knitr.kable.NA = 'NA')
 ```
 
 We can calculate the standard deviation and mean of the temperature variable `temp` in the `weather` data frame of `nycflights13` in one step using the `summarize` (or equivalently using the UK spelling `summarise`) function in `dplyr` (See Appendix \@ref(appendixA)):
@@ -2867,11 +2885,12 @@ summary_temp <- weather %>%
 summary_temp
 ```
 ```{r, echo=FALSE}
+options(knitr.kable.NA = '')
 summary_temp <- weather %>% 
   summarize(mean = mean(temp), 
             std_dev = sd(temp))
 kable(summary_temp) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -2894,7 +2913,7 @@ summary_temp <- weather %>%
   summarize(mean = mean(temp, na.rm = TRUE), 
             std_dev = sd(temp, na.rm = TRUE))
 kable(summary_temp) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3005,7 +3024,7 @@ summary_monthly_temp <- weather %>%
   summarize(mean = mean(temp, na.rm = TRUE), 
             std_dev = sd(temp, na.rm = TRUE))
 kable(summary_monthly_temp) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3028,7 +3047,7 @@ by_origin <- flights %>%
   group_by(origin) %>% 
   summarize(count = n())
 kable(by_origin) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3115,7 +3134,7 @@ summary_temp_by_month <- weather %>%
 
 ```{r, echo=FALSE, include=show_solutions('5-3'), purl=FALSE}
 kable(summary_temp_by_month) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3155,7 +3174,7 @@ by_monthly_origin
 
 ```{r, echo=FALSE, include=show_solutions('5-3'), purl=FALSE}
 kable(by_monthly_origin) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3178,7 +3197,7 @@ count_flights_by_airport
 
 ```{r, echo=FALSE, include=show_solutions('5-3'), purl=FALSE}
 kable(count_flights_by_airport) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3251,7 +3270,7 @@ gain_summary <- flights %>%
     missing = sum(is.na(gain))
   )
 kable(gain_summary) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3657,9 +3676,10 @@ read_csv("data/ch5_summary_table - Sheet1.csv", na = "") %>%
     caption = "Summary of data wrangling verbs", 
     booktabs = TRUE
   ) %>% 
-   kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                  latex_options = c("HOLD_position")) %>%
-   column_spec(2, width = "3.5in")
+   column_spec(2, width = "0.9in") %>% 
+   column_spec(3, width = "3.3in")
 ```
 
 Let's now put your newly acquired data wrangling skills to the test! An airline industry measure of a passenger airline's capacity is the [available seat miles](https://en.wikipedia.org/wiki/Available_seat_miles), which is equal to the number of seats available multiplied by the number of miles or kilometers flown. So for example say an airline had 2 flights using a plane with 10 seats that flew 500 miles and 3 flights using a plane with 20 seats that flew 1000 miles, the available seat miles would be 2 $\times$ 10 $\times$ 500 $+$ 3 $\times$ 20 $\times$ 1000 = 70,000 seat miles.
@@ -3939,7 +3959,7 @@ evals_ch6 %>%
     caption = "Random sample of 5 instructors",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -3963,7 +3983,7 @@ evals_ch6 %>%
   skim()
 ```
 
-```{r echo=FALSE}
+```{r echo=FALSE, results='asis'}
 evals_ch6 %>% 
   select(score, bty_avg) %>% 
   skim() %>% 
@@ -4202,7 +4222,7 @@ get_regression_table(score_model) %>%
     caption = "Linear regression table",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4262,7 +4282,7 @@ evals_ch6 %>%
     caption = "Data for 21st instructor",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4491,7 +4511,7 @@ gapminder2007 %>%
     caption = "Random sample of 5 countries",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4627,7 +4647,7 @@ gapminder2007 %>%
     caption = "Mean life expectancy by continent",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4649,7 +4669,7 @@ get_regression_table(lifeExp_model) %>%
     caption = "Linear regression table",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4765,7 +4785,7 @@ gapminder2007 %>%
     caption = "First 10 out of 142 countries",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4789,7 +4809,7 @@ regression_points %>%
     caption = "Regression points (First 10 out of 142 countries)",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -4846,7 +4866,7 @@ gapminder2007 %>%
     caption = "Countries in Asia with shortest life expectancy",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5067,7 +5087,7 @@ get_regression_table(score_model)
 score_model <- lm(score ~ bty_avg, data = evals_ch6)
 get_regression_table(score_model) %>% 
   knitr::kable() %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5093,7 +5113,7 @@ score_model %>%
   rename(lower_ci = conf_low,
          upper_ci = conf_high) %>% 
   knitr::kable() %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5120,7 +5140,7 @@ score_model %>%
   select(-c("se_fit", "hat", "sigma", "cooksd", "std_resid")) %>% 
   slice(1:10) %>% 
   knitr::kable() %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5259,7 +5279,7 @@ Credit %>%
     caption = "Random sample of 5 credit card holders",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5312,7 +5332,7 @@ Credit %>%
     caption = "Correlations between credit card balance, credit limit, and income", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5491,7 +5511,7 @@ get_regression_table(Balance_model) %>%
     caption = "Multiple regression table", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5536,7 +5556,7 @@ regression_points %>%
     caption = "Regression points (first 5 rows of 400)",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5637,7 +5657,7 @@ evals_ch7 %>%
     caption = "Random sample of 5 instructors",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5692,7 +5712,7 @@ get_regression_table(score_model_2) %>%
     caption = "Regression table", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5754,7 +5774,7 @@ get_regression_table(score_model_interaction) %>%
     caption = "Regression table", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5802,7 +5822,7 @@ data_frame(
     caption = "Comparison of male and female intercepts and age slopes", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5828,7 +5848,7 @@ regression_points %>%
     caption = "Regression points (first 5 rows of 463)",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5897,7 +5917,7 @@ Credit %>%
     caption = "Correlation between income (in dollars) and credit card balance", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -6204,11 +6224,12 @@ View(tactile_prop_red)
 ```{r tactilered, echo=FALSE}
 kable(tactile_prop_red,
       digits = 3,
-      caption = "\\label{tab:tactilered}33 sample proportions based on 33 tactile samples with n = 50", 
-      booktabs = TRUE
+      caption = "33 sample proportions based on 33 tactile samples with n = 50", 
+      booktabs = TRUE,
+      longtable = TRUE
 ) %>% 
-  kable_styling(font_size = 10, 
-                latex_options = c("HOLD_position"))
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
+                latex_options = c("HOLD_position", "repeat_header"))
 ```
 
 Using your data visualization skills that you honed in Chapter \@ref(viz), let's visualize the distribution of these 33 sample proportions red $\widehat{p}$ using a histogram with `binwidth = 0.05`. This visualization is appropriate since `prop_red` is a numerical variable. This histogram is showing a very particular important type of distribution in statistics: the *sampling distribution*.
@@ -6252,7 +6273,7 @@ summary_stats <- tactile_prop_red %>%
   summarize(mean = mean(prop_red), sd = sd(prop_red))
 summary_stats %>% 
   kable(digits = 3) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -6304,7 +6325,7 @@ virtual_shovel %>%
     caption = "First 10 sampled balls of 50 in virtual sample",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -6324,7 +6345,7 @@ virtual_shovel %>%
     caption = "Count and proportion red in single virtual sample of size n = 50",
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -6372,7 +6393,7 @@ virtual_prop_red %>%
     booktabs = TRUE,
     longtable = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position", "repeat_header"))
 ```
 
@@ -6608,7 +6629,7 @@ kable(count_virtual_prop,
       caption = "Comparing the SE for different n", 
       booktabs = TRUE
 ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -6787,8 +6808,9 @@ read_csv("data/ch9_summary_table - Sheet1.csv", na = "") %>%
     booktabs = TRUE,
     escape = FALSE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position")) %>%
+  column_spec(1, width = "0.5in") %>% 
   column_spec(2, width = "0.7in") %>%
   column_spec(3, width = "1in") %>%
   column_spec(4, width = "0.7in") %>% 
@@ -7544,10 +7566,12 @@ conf_ints %>%
   kable(
     digits = 3,
     caption = "33 confidence intervals from 33 tactile samples of size n=50", 
-    booktabs = TRUE
+    booktabs = TRUE,
+    longtable = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
-                latex_options = c("HOLD_position"))
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
+                latex_options = c("HOLD_position", "repeat_header", 
+                                  "scale_down"))
 ```
 
 Let's plot:
@@ -8865,7 +8889,7 @@ get_regression_table(score_model_2) %>%
     caption = "Model 1: Regression table with no interaction effect included", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -8883,7 +8907,7 @@ get_regression_table(score_model_3) %>%
     caption = "Model 2: Regression table with interaction effect included", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -9114,10 +9138,10 @@ data_frame(Price = c(1,10,100,1000,10000,100000,1000000)) %>%
     `Examples` = c("Cups of coffee", "Books", "Mobile phones", "High definition TV's", "Cars", "Luxury cars & houses", "Luxury houses")
     ) %>% 
   kable(
-    caption = "\\label{tab:logten}log10-transformated prices, orders of magnitude, and examples", 
+    caption = "log10-transformed prices, orders of magnitude, and examples", 
     booktabs = TRUE
   ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -9570,7 +9594,7 @@ age_summ <- age_at_marriage %>%
     upper_quartile = quantile(age, 0.75),
     max = max(age))
 kable(age_summ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -10321,7 +10345,7 @@ inc_summ <- cle_sac %>% group_by(metro_area) %>%
     upper_quartile = quantile(income, 0.75),
     max = max(income))
 kable(inc_summ) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 

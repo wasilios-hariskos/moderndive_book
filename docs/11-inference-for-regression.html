@@ -545,7 +545,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="datacamp-7" class="section level3 unnumbered">
 <h3>DataCamp</h3>
 <p>Our approach of understanding both the statistical and practical significance of any regression results, is aligned with the approach taken in <a href="https://twitter.com/jo_hardin47">Jo Hardin’s</a> DataCamp course “Inference for Regression.” If you’re interested in complementing your learning below in an interactive online environment, click on the image below to access the course.</p>
-<p><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/inference-for-linear-regression"><img src="images/datacamp_inference_for_regression.png" style="height: 150px;"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="https://www.datacamp.com/courses/inference-for-linear-regression"><img src="images/datacamp_inference_for_regression.png" style="height: 150px;"/></a>
+</center>
 </div>
 <div id="simulation-based-inference-for-regression" class="section level2">
 <h2><span class="header-section-number">11.1</span> Simulation-based Inference for Regression</h2>
@@ -704,7 +706,7 @@ Figure 11.2: Model 2: interaction effect included
 <p>Last, let’s recall the regressions we fit. First, the regression with no interaction effect: note the use of <code>+</code> in the formula in Table <a href="11-inference-for-regression.html#tab:modelmultireg">11.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">score_model_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(score <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender, <span class="dt">data =</span> evals_multiple)
 <span class="kw">get_regression_table</span>(score_model_<span class="dv">2</span>)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:modelmultireg">Table 11.1: </span>Model 1: Regression table with no interaction effect included
 </caption>
@@ -808,7 +810,7 @@ gendermale
 <p>Second, the regression with an interaction effect: note the use of <code>*</code> in the formula.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">score_model_<span class="dv">3</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(score <span class="op">~</span><span class="st"> </span>age <span class="op">*</span><span class="st"> </span>gender, <span class="dt">data =</span> evals_multiple)
 <span class="kw">get_regression_table</span>(score_model_<span class="dv">3</span>)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-434">Table 11.2: </span>Model 2: Regression table with interaction effect included
 </caption>

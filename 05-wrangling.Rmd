@@ -155,7 +155,9 @@ To see many of these in action, let's select all flights that left JFK airport h
 
 ```{r, eval=FALSE}
 btv_sea_flights_fall <- flights %>% 
-  filter(origin == "JFK", (dest == "BTV" | dest == "SEA"), month >= 10)
+  filter(origin == "JFK", 
+         dest == "BTV" | dest == "SEA", 
+         month >= 10)
 View(btv_sea_flights_fall)
 ```
 
@@ -210,6 +212,7 @@ knitr::include_graphics("images/summarize1.png")
 
 ```{r sum2, echo=FALSE, fig.cap="Another summarize diagram from Data Wrangling with dplyr and tidyr cheatsheet", purl=FALSE}
 knitr::include_graphics("images/summary.png")
+options(knitr.kable.NA = 'NA')
 ```
 
 We can calculate the standard deviation and mean of the temperature variable `temp` in the `weather` data frame of `nycflights13` in one step using the `summarize` (or equivalently using the UK spelling `summarise`) function in `dplyr` (See Appendix \@ref(appendixA)):
@@ -221,11 +224,12 @@ summary_temp <- weather %>%
 summary_temp
 ```
 ```{r, echo=FALSE}
+options(knitr.kable.NA = '')
 summary_temp <- weather %>% 
   summarize(mean = mean(temp), 
             std_dev = sd(temp))
 kable(summary_temp) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -248,7 +252,7 @@ summary_temp <- weather %>%
   summarize(mean = mean(temp, na.rm = TRUE), 
             std_dev = sd(temp, na.rm = TRUE))
 kable(summary_temp) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -359,7 +363,7 @@ summary_monthly_temp <- weather %>%
   summarize(mean = mean(temp, na.rm = TRUE), 
             std_dev = sd(temp, na.rm = TRUE))
 kable(summary_monthly_temp) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -382,7 +386,7 @@ by_origin <- flights %>%
   group_by(origin) %>% 
   summarize(count = n())
 kable(by_origin) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -469,7 +473,7 @@ summary_temp_by_month <- weather %>%
 
 ```{r, echo=FALSE, include=show_solutions('5-3'), purl=FALSE}
 kable(summary_temp_by_month) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -509,7 +513,7 @@ by_monthly_origin
 
 ```{r, echo=FALSE, include=show_solutions('5-3'), purl=FALSE}
 kable(by_monthly_origin) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -532,7 +536,7 @@ count_flights_by_airport
 
 ```{r, echo=FALSE, include=show_solutions('5-3'), purl=FALSE}
 kable(count_flights_by_airport) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -605,7 +609,7 @@ gain_summary <- flights %>%
     missing = sum(is.na(gain))
   )
 kable(gain_summary) %>% 
-  kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
                 latex_options = c("HOLD_position"))
 ```
 
@@ -1011,9 +1015,10 @@ read_csv("data/ch5_summary_table - Sheet1.csv", na = "") %>%
     caption = "Summary of data wrangling verbs", 
     booktabs = TRUE
   ) %>% 
-   kable_styling(font_size = 10, 
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                  latex_options = c("HOLD_position")) %>%
-   column_spec(2, width = "3.5in")
+   column_spec(2, width = "0.9in") %>% 
+   column_spec(3, width = "3.3in")
 ```
 
 Let's now put your newly acquired data wrangling skills to the test! An airline industry measure of a passenger airline's capacity is the [available seat miles](https://en.wikipedia.org/wiki/Available_seat_miles), which is equal to the number of seats available multiplied by the number of miles or kilometers flown. So for example say an airline had 2 flights using a plane with 10 seats that flew 500 miles and 3 flights using a plane with 20 seats that flew 1000 miles, the available seat miles would be 2 $\times$ 10 $\times$ 500 $+$ 3 $\times$ 20 $\times$ 1000 = 70,000 seat miles.

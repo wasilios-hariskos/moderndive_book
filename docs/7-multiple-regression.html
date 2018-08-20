@@ -539,7 +539,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="datacamp-4" class="section level3 unnumbered">
 <h3>DataCamp</h3>
 <p>The approach taken below of using more than one variable of information in models using multiple regression is identical to that taken in ModernDive co-author <a href="https://twitter.com/rudeboybert">Albert Y. Kim’s</a> DataCamp course “Modeling with Data in the Tidyverse.” If you’re interested in complementing your learning below in an interactive online environment, click on the image below to access the course. The relevant chapters are Chapter 1 “Introduction to Modeling” and Chapter 3 “Modeling with Multiple Regression.”</p>
-<p><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/working-with-data-in-the-tidyverse"><img src="images/datacamp_working_with_data.png" style="height: 150px;"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="https://www.datacamp.com/courses/working-with-data-in-the-tidyverse"><img src="images/datacamp_working_with_data.png" style="height: 150px;"/></a>
+</center>
 </div>
 <div id="model3" class="section level2">
 <h2><span class="header-section-number">7.1</span> Two numerical explanatory variables</h2>
@@ -570,7 +572,7 @@ Credit &lt;-<span class="st"> </span>Credit <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(Balance, Limit, Income, Rating, Age)</code></pre></div>
 <p>Let’s look at the raw data values both by bringing up RStudio’s spreadsheet viewer and the <code>glimpse()</code> function. Although in Table <a href="7-multiple-regression.html#tab:model3-data-preview">7.1</a> we only show 5 randomly selected credit card holders out of 400:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(Credit)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model3-data-preview">Table 7.1: </span>Random sample of 5 credit card holders
 </caption>
@@ -743,7 +745,7 @@ Credit <span class="op">%&gt;%</span><span class="st"> </span>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Credit <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">select</span>(Balance, Limit, Income) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">cor</span>()</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model3-correlation">Table 7.2: </span>Correlations between credit card balance, credit limit, and income
 </caption>
@@ -843,7 +845,9 @@ Figure 7.1: Relationship between credit card balance and credit limit/income
 </ol></li>
 </ol>
 <p>Click on the following image to open an interactive 3D scatterplot in your browser:</p>
-<p><a target="_blank" class="page-link" href="https://assets.datacamp.com/production/repositories/1575/datasets/f369dc94041e88effd5ed66512978f8cdfd33801/03-01-slides-interactive_3D_scatterplot_regression_plane.html"><img src="images/credit_card_balance_3D_scatterplot.png" style="width=200%"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="https://assets.datacamp.com/production/repositories/1575/datasets/f369dc94041e88effd5ed66512978f8cdfd33801/03-01-slides-interactive_3D_scatterplot_regression_plane.html"><img src="images/credit_card_balance_3D_scatterplot.png" style="width=200%"/></a>
+</center>
 <p>Previously in Figure <a href="6-regression.html#fig:numxplot4">6.6</a>, we plotted a “best-fitting” regression line through a set of points where the numerical outcome variable <span class="math inline">\(y\)</span> was teaching <code>score</code> and a single numerical explanatory variable <span class="math inline">\(x\)</span> was <code>bty_avg</code>. What is the analogous concept when we have <em>two</em> numerical predictor variables? Instead of a best-fitting line, we now have a best-fitting <em>plane</em>, which is a 3D generalization of lines which exist in 2D. Click <a href="https://beta.rstudioconnect.com/connect/#/apps/3214/">here</a> to open an interactive plot of the regression plane shown below in your browser. Move the image around, zoom in, and think about how this plane generalizes the concept of a linear regression line to three dimensions.</p>
 <!-- Need to replace link here since RStudio Connect is Amherst? -->
 <div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-228"></span>
@@ -855,7 +859,7 @@ Figure 7.2: Regression plane
 <!--
 <center>
 \begin{center}
-<a target="_blank" class="page-link" href="https://beta.rstudioconnect.com/connect/#/apps/3214/"><img src="images/credit_card_balance_regression_plane.png" style="height: 200px;"/></a>
+<center><a target="_blank" class="page-link" href="https://beta.rstudioconnect.com/connect/#/apps/3214/"><img src="images/credit_card_balance_regression_plane.png" style="height: 200px;"/></a></center>
 \end{center}
 </center>
 -->
@@ -881,7 +885,7 @@ Figure 7.2: Regression plane
 <p>Just as we did when we had a single numerical explanatory variable <span class="math inline">\(x\)</span> in Subsection <a href="6-regression.html#model1table">6.1.2</a> and when we had a single categorical explanatory variable <span class="math inline">\(x\)</span> in Subsection <a href="6-regression.html#model2table">6.2.2</a>, we fit a regression model and obtained the regression table in our two numerical explanatory variable scenario. To fit a regression model and get a table using <code>get_regression_table()</code>, we now use a <code>+</code> to consider multiple explanatory variables. In this case since we want to perform a regression of <code>Limit</code> and <code>Income</code> simultaneously, we input <code>Balance ~ Limit + Income</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Balance_model &lt;-<span class="st"> </span><span class="kw">lm</span>(Balance <span class="op">~</span><span class="st"> </span>Limit <span class="op">+</span><span class="st"> </span>Income, <span class="dt">data =</span> Credit)
 <span class="kw">get_regression_table</span>(Balance_model)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model3-table-output">Table 7.3: </span>Multiple regression table
 </caption>
@@ -1009,7 +1013,7 @@ Income
 <p>As we did previously in Table <a href="7-multiple-regression.html#tab:model3-points-table">7.4</a>, let’s unpack the output of the <code>get_regression_points()</code> function for our model for credit card balance for all 400 card holders in the dataset. Recall that each card holder corresponds to one of the 400 rows in the <code>Credit</code> data frame and also for one of the 400 3D points in the 3D scatterplots in Subsection <a href="7-multiple-regression.html#model3EDA">7.1.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regression_points &lt;-<span class="st"> </span><span class="kw">get_regression_points</span>(Balance_model)
 regression_points</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model3-points-table">Table 7.4: </span>Regression points (first 5 rows of 400)
 </caption>
@@ -1207,7 +1211,7 @@ Figure 7.4: Relationship between credit card balance and credit limit/income
 <span class="st">  </span><span class="kw">select</span>(score, age, gender)</code></pre></div>
 <p>Let’s look at the raw data values both by bringing up RStudio’s spreadsheet viewer and the <code>glimpse()</code> function, although in Table <a href="7-multiple-regression.html#tab:model4-data-preview">7.5</a> we only show 5 randomly selected instructors out of 463:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(evals_ch7)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model4-data-preview">Table 7.5: </span>Random sample of 5 instructors
 </caption>
@@ -1333,7 +1337,7 @@ Figure 7.5: Instructor evaluation scores at UT Austin split by gender (jittered)
 <p>Much like we started to consider multiple explanatory variables using the <code>+</code> sign in Subsection <a href="7-multiple-regression.html#model3table">7.1.2</a>, let’s fit a regression model and get the regression table. This time we provide the name of <code>score_model_2</code> to our regression model fit, in so as to not overwrite the model <code>score_model</code> from Section <a href="6-regression.html#model1table">6.1.2</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">score_model_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(score <span class="op">~</span><span class="st"> </span>age <span class="op">+</span><span class="st"> </span>gender, <span class="dt">data =</span> evals_ch7)
 <span class="kw">get_regression_table</span>(score_model_<span class="dv">2</span>)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-246">Table 7.6: </span>Regression table
 </caption>
@@ -1464,7 +1468,7 @@ Figure 7.6: Instructor evaluation scores at UT Austin by gender: same slope
 <p>Let’s fit a regression with an interaction term. Instead of using the <code>+</code> sign in the enumeration of explanatory variables, we use the <code>*</code> sign. Let’s fit this regression and save it in <code>score_model_3</code>, then we get the regression table using the <code>get_regression_table()</code> function as before.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">score_model_interaction &lt;-<span class="st"> </span><span class="kw">lm</span>(score <span class="op">~</span><span class="st"> </span>age <span class="op">*</span><span class="st"> </span>gender, <span class="dt">data =</span> evals_ch7)
 <span class="kw">get_regression_table</span>(score_model_interaction)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-248">Table 7.7: </span>Regression table
 </caption>
@@ -1609,7 +1613,7 @@ age:gendermale
 &amp;= 4.883 -0.018 \cdot \mbox{age}
 \end{align}\]</span>
 <p>Let’s summarize these values in a table:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-249">Table 7.8: </span>Comparison of male and female intercepts and age slopes
 </caption>
@@ -1659,7 +1663,7 @@ Female instructors
 <p>Now say we want to apply the above calculations for male and female instructors for all 463 instructors in the <code>evals_ch7</code> dataset. As our multiple regression models get more and more complex, computing such values by hand gets more and more tedious. The <code>get_regression_points()</code> function spares us this tedium and returns all fitted values and all residuals. For simplicity, let’s focus only on the fitted interaction model, which is saved in <code>score_model_interaction</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regression_points &lt;-<span class="st"> </span><span class="kw">get_regression_points</span>(score_model_interaction)
 regression_points</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model4-points-table">Table 7.9: </span>Regression points (first 5 rows of 463)
 </caption>
@@ -1837,7 +1841,7 @@ Credit <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(Balance, Income) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate</span>(<span class="dt">Income =</span> Income <span class="op">*</span><span class="st"> </span><span class="dv">1000</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">cor</span>()</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:cor-credit-2">Table 7.10: </span>Correlation between income (in dollars) and credit card balance
 </caption>

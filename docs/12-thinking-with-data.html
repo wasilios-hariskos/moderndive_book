@@ -578,7 +578,9 @@ Figure 12.2: Data/Science Pipeline
 <div id="datacamp-8" class="section level3 unnumbered">
 <h3>DataCamp</h3>
 <p>The case study of Seattle house prices below was the inspiration for a large part of ModernDive co-author <a href="https://twitter.com/rudeboybert">Albert Y. Kim’s</a> DataCamp course “Modeling with Data in the Tidyverse.” If you’re interested in complementing your learning below in an interactive online environment, click on the image below to access the course. The relevant chapters are Chapter 1 “Introduction to Modeling” and Chapter 3 “Modeling with Multiple Regression.”</p>
-<p><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/modeling-with-data-in-the-tidyverse"><img src="images/datacamp_intro_to_modeling.png" style="height: 200px;"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="https://www.datacamp.com/courses/modeling-with-data-in-the-tidyverse"><img src="images/datacamp_intro_to_modeling.png" style="height: 200px;"/></a>
+</center>
 <p>Case studies involving data in the <code>fivethirtyeight</code> R package form the basis of ModernDive co-author <a href="https://twitter.com/old_man_chester?lang=en">Chester Ismay’s</a> DataCamp course “Effective Data Storytelling in the Tidyverse.” This free course can be accessed <a href="https://www.datacamp.com/courses/effective-data-storytelling-using-the-tidyverse-free">here</a>.</p>
 <hr />
 </div>
@@ -695,7 +697,7 @@ Figure 12.3: Exploratory visualizations of Seattle house prices data
 <div id="log10-transformations" class="section level3">
 <h3><span class="header-section-number">12.1.2</span> log10 transformations</h3>
 <p>At its simplest, <code>log10()</code> transformations returns base 10 <em>logarithms</em>. For example, since <span class="math inline">\(1000 = 10^3\)</span>, <code>log10(1000)</code> returns <code>3</code>. To undo a log10-transformation, we raise 10 to this value. For example, to undo the previous log10-transformation and return the original value of 1000, we raise 10 to this value <span class="math inline">\(10^{3}\)</span> by running <code>10^(3) = 1000</code>. log-transformations allow us to focus on multiplicative changes instead of additive ones, thereby emphasizing changes in “orders of magnitude.” Let’s illustrate this idea in Table <a href="#tab:logten"><strong>??</strong></a> with examples of prices of consumer goods in US dollars.</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>

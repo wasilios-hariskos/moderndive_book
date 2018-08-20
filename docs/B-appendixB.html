@@ -600,9 +600,9 @@ Figure B.1: Mind map for Inference
     <span class="dt">upper_quartile =</span> <span class="kw">quantile</span>(age, <span class="fl">0.75</span>),
     <span class="dt">max =</span> <span class="kw">max</span>(age))
 <span class="kw">kable</span>(age_summ) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">font_size =</span> <span class="dv">10</span>, 
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">font_size =</span> <span class="kw">ifelse</span>(knitr<span class="op">:::</span><span class="kw">is_latex_output</span>(), <span class="dv">10</span>, <span class="dv">16</span>), 
                 <span class="dt">latex_options =</span> <span class="kw">c</span>(<span class="st">&quot;HOLD_position&quot;</span>))</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>
@@ -1202,9 +1202,9 @@ z_hat</code></pre></div>
     <span class="dt">upper_quartile =</span> <span class="kw">quantile</span>(income, <span class="fl">0.75</span>),
     <span class="dt">max =</span> <span class="kw">max</span>(income))
 <span class="kw">kable</span>(inc_summ) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">font_size =</span> <span class="dv">10</span>, 
+<span class="st">  </span><span class="kw">kable_styling</span>(<span class="dt">font_size =</span> <span class="kw">ifelse</span>(knitr<span class="op">:::</span><span class="kw">is_latex_output</span>(), <span class="dv">10</span>, <span class="dv">16</span>), 
                 <span class="dt">latex_options =</span> <span class="kw">c</span>(<span class="st">&quot;HOLD_position&quot;</span>))</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th>

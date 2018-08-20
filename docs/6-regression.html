@@ -565,7 +565,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="datacamp-3" class="section level3 unnumbered">
 <h3>DataCamp</h3>
 <p>The introductory basic regression analysis below was the inspiration for a large part of ModernDive co-author <a href="https://twitter.com/rudeboybert">Albert Y. Kim’s</a> DataCamp course “Modeling with Data in the Tidyverse.” If you’re interested in complementing your learning below in an interactive online environment, click on the image below to access the course. The relevant chapters are Chapter 1 “Introduction to Modeling” and Chapter 2 “Modeling with Basic Regression”.</p>
-<p><a target="_blank" class="page-link" href="https://www.datacamp.com/courses/working-with-data-in-the-tidyverse"><img src="images/datacamp_working_with_data.png" style="height: 150px;"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="https://www.datacamp.com/courses/working-with-data-in-the-tidyverse"><img src="images/datacamp_working_with_data.png" style="height: 150px;"/></a>
+</center>
 </div>
 <div id="model1" class="section level2">
 <h2><span class="header-section-number">6.1</span> One numerical explanatory variable</h2>
@@ -590,7 +592,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">select</span>(score, bty_avg, age)</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">evals_ch6 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">sample_n</span>(<span class="dv">5</span>)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-165">Table 6.1: </span>Random sample of 5 instructors
 </caption>
@@ -682,58 +684,130 @@ $ age     &lt;int&gt; 36, 36, 36, 36, 59, 59, 59, 51, 51, 40, 40, 40, 40, 40, 40
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">evals_ch6 <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(score, bty_avg) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">skim</span>()</code></pre></div>
-<pre><code>Skim summary statistics  
- n obs: 463    
- n variables: 2    
-
-Variable type: numeric&lt;table&gt;
- &lt;thead&gt;
-  &lt;tr&gt;
-   &lt;th&gt; variable &lt;/th&gt;
-   &lt;th&gt; missing &lt;/th&gt;
-   &lt;th&gt; complete &lt;/th&gt;
-   &lt;th&gt; n &lt;/th&gt;
-   &lt;th&gt; mean &lt;/th&gt;
-   &lt;th&gt; sd &lt;/th&gt;
-   &lt;th&gt; p0 &lt;/th&gt;
-   &lt;th&gt; p25 &lt;/th&gt;
-   &lt;th&gt; p50 &lt;/th&gt;
-   &lt;th&gt; p75 &lt;/th&gt;
-   &lt;th&gt; p100 &lt;/th&gt;
-   &lt;th&gt; hist &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td&gt; bty_avg &lt;/td&gt;
-   &lt;td&gt; 0 &lt;/td&gt;
-   &lt;td&gt; 463 &lt;/td&gt;
-   &lt;td&gt; 463 &lt;/td&gt;
-   &lt;td&gt; 4.42 &lt;/td&gt;
-   &lt;td&gt; 1.53 &lt;/td&gt;
-   &lt;td&gt; 1.67 &lt;/td&gt;
-   &lt;td&gt; 3.17 &lt;/td&gt;
-   &lt;td&gt; 4.33 &lt;/td&gt;
-   &lt;td&gt; 5.5 &lt;/td&gt;
-   &lt;td&gt; 8.17 &lt;/td&gt;
-   &lt;td&gt; ▂▅▅▇▃▃▂▁ &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td&gt; score &lt;/td&gt;
-   &lt;td&gt; 0 &lt;/td&gt;
-   &lt;td&gt; 463 &lt;/td&gt;
-   &lt;td&gt; 463 &lt;/td&gt;
-   &lt;td&gt; 4.17 &lt;/td&gt;
-   &lt;td&gt; 0.54 &lt;/td&gt;
-   &lt;td&gt; 2.3 &lt;/td&gt;
-   &lt;td&gt; 3.8 &lt;/td&gt;
-   &lt;td&gt; 4.3 &lt;/td&gt;
-   &lt;td&gt; 4.6 &lt;/td&gt;
-   &lt;td&gt; 5 &lt;/td&gt;
-   &lt;td&gt; ▁▁▂▃▅▇▇▆ &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</code></pre>
+<p>Skim summary statistics<br />
+n obs: 463<br />
+n variables: 2</p>
+Variable type: numeric
+<table>
+<thead>
+<tr>
+<th>
+variable
+</th>
+<th>
+missing
+</th>
+<th>
+complete
+</th>
+<th>
+n
+</th>
+<th>
+mean
+</th>
+<th>
+sd
+</th>
+<th>
+p0
+</th>
+<th>
+p25
+</th>
+<th>
+p50
+</th>
+<th>
+p75
+</th>
+<th>
+p100
+</th>
+<th>
+hist
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+bty_avg
+</td>
+<td>
+0
+</td>
+<td>
+463
+</td>
+<td>
+463
+</td>
+<td>
+4.42
+</td>
+<td>
+1.53
+</td>
+<td>
+1.67
+</td>
+<td>
+3.17
+</td>
+<td>
+4.33
+</td>
+<td>
+5.5
+</td>
+<td>
+8.17
+</td>
+<td>
+▂▅▅▇▃▃▂▁
+</td>
+</tr>
+<tr>
+<td>
+score
+</td>
+<td>
+0
+</td>
+<td>
+463
+</td>
+<td>
+463
+</td>
+<td>
+4.17
+</td>
+<td>
+0.54
+</td>
+<td>
+2.3
+</td>
+<td>
+3.8
+</td>
+<td>
+4.3
+</td>
+<td>
+4.6
+</td>
+<td>
+5
+</td>
+<td>
+▁▁▂▃▅▇▇▆
+</td>
+</tr>
+</tbody>
+</table>
 <p>In this case for our two numerical variables <code>bty_avg</code> beauty score and teaching score <code>score</code> it returns:</p>
 <ul>
 <li><code>missing</code>: the number of missing values</li>
@@ -902,7 +976,7 @@ Coefficients:
 score_model &lt;-<span class="st"> </span><span class="kw">lm</span>(score <span class="op">~</span><span class="st"> </span>bty_avg, <span class="dt">data =</span> evals_ch6)
 <span class="co"># Get regression table:</span>
 <span class="kw">get_regression_table</span>(score_model)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:numxplot4b">Table 6.2: </span>Linear regression table
 </caption>
@@ -1015,7 +1089,7 @@ Figure 6.7: The concept of a ‘wrapper’ function.
 <h3><span class="header-section-number">6.1.3</span> Observed/fitted values and residuals</h3>
 <p>We just saw how to get the value of the intercept and the slope of the regression line from the regression table generated by <code>get_regression_table()</code>. Now instead, say we want information on individual points. In this case, we focus on one of the <span class="math inline">\(n = 463\)</span> instructors in this dataset, corresponding to a single row of <code>evals_ch6</code>.</p>
 <p>For example, say we are interested in the 21st instructor in this dataset:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-178">Table 6.3: </span>Data for 21st instructor
 </caption>
@@ -1272,7 +1346,7 @@ gapminder2007 &lt;-<span class="st"> </span>gapminder <span class="op">%&gt;%</s
 <span class="st">  </span><span class="kw">select</span>(country, continent, lifeExp, gdpPercap)</code></pre></div>
 <p>You should look at the raw data values both by bringing up RStudio’s spreadsheet viewer and the <code>glimpse()</code> function. In Table <a href="6-regression.html#tab:model2-data-preview">6.5</a> we only show 5 randomly selected countries out of 142:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">View</span>(gapminder2007)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:model2-data-preview">Table 6.5: </span>Random sample of 5 countries
 </caption>
@@ -1547,7 +1621,7 @@ Figure 6.15: Life expectancy in 2007
 <li>Report the difference in mean life expectancy <em>relative</em> to Africa’s mean life expectancy of 54.806 in the column “mean vs Africa”; this column is simply the “mean” column minus 54.806.</li>
 </ol>
 <p>Think back to your observations from the eyeball test of Figure <a href="6-regression.html#fig:catxplot1">6.15</a> at the end of the last subsection. The column “mean vs Africa” is the same idea of comparing a summary statistic to a baseline for comparison, in this case the countries of Africa, but using means instead of medians.</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:continent-mean-life-expectancies">Table 6.7: </span>Mean life expectancy by continent
 </caption>
@@ -1625,7 +1699,7 @@ Oceania
 <p>Now, let’s use the <code>get_regression_table()</code> function we introduced in Section <a href="6-regression.html#model1table">6.1.2</a> to get the <em>regression table</em> for <code>gapminder2007</code> analysis:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">lifeExp_model &lt;-<span class="st"> </span><span class="kw">lm</span>(lifeExp <span class="op">~</span><span class="st"> </span>continent, <span class="dt">data =</span> gapminder2007)
 <span class="kw">get_regression_table</span>(lifeExp_model)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:catxplot4b">Table 6.8: </span>Linear regression table
 </caption>
@@ -1848,7 +1922,7 @@ continentOceania
 <li>Residuals <span class="math inline">\(y - \widehat{y}\)</span>, or the error between the observed value and the fitted value</li>
 </ol>
 <p>What do fitted values <span class="math inline">\(\widehat{y}\)</span> and residuals <span class="math inline">\(y - \widehat{y}\)</span> correspond to when the explanatory variable <span class="math inline">\(x\)</span> is categorical? Let’s investigate these values for the first 10 countries in the <code>gapminder2007</code> dataset:</p>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-199">Table 6.9: </span>First 10 out of 142 countries
 </caption>
@@ -2020,7 +2094,7 @@ Europe
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">regression_points &lt;-<span class="st"> </span><span class="kw">get_regression_points</span>(lifeExp_model)
 regression_points</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-201">Table 6.10: </span>Regression points (First 10 out of 142 countries)
 </caption>
@@ -2249,7 +2323,7 @@ Figure 6.16: Plot of residuals over continent
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">gapminder2007 <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">filter</span>(continent <span class="op">==</span><span class="st"> &quot;Asia&quot;</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">arrange</span>(lifeExp)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <caption style="font-size: initial !important;">
 <span id="tab:unnamed-chunk-203">Table 6.11: </span>Countries in Asia with shortest life expectancy
 </caption>
@@ -2376,7 +2450,9 @@ Figure 6.18: Different Correlation Coefficients
 </p>
 </div>
 <p>As we suggested in Subsection <a href="6-regression.html#model1EDA">6.1.1</a>, interpreting coefficients that are not close to the extreme values of -1 and 1 can be subjective. To develop your sense of correlation coefficients, we suggest you play the following 80’s-style video game called “Guess the correlation”! Click on the image below to do so:</p>
-<p><a target="_blank" class="page-link" href="http://guessthecorrelation.com/"><img src="images/guess_the_correlation.png" style="height: 200px;"/></a></p>
+<center>
+<a target="_blank" class="page-link" href="http://guessthecorrelation.com/"><img src="images/guess_the_correlation.png" style="height: 200px;"/></a>
+</center>
 </div>
 <div id="correlation-is-not-causation" class="section level3">
 <h3><span class="header-section-number">6.3.2</span> Correlation is not necessarily causation</h3>
@@ -2445,7 +2521,7 @@ Figure 6.20: Causal graph.
 <p>to generate tidy data frames with information about a regression model. Here is what the regression table from Subsection <a href="6-regression.html#model1table">6.1.2</a> looks like:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">score_model &lt;-<span class="st"> </span><span class="kw">lm</span>(score <span class="op">~</span><span class="st"> </span>bty_avg, <span class="dt">data =</span> evals_ch6)
 <span class="kw">get_regression_table</span>(score_model)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -2529,7 +2605,7 @@ score_model <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">rename</span>(<span class="dt">lower_ci =</span> conf_low,
          <span class="dt">upper_ci =</span> conf_high)</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:left;">
@@ -2613,7 +2689,7 @@ score_model <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">mutate_if</span>(is.numeric, round, <span class="dt">digits =</span> <span class="dv">3</span>) <span class="op">%&gt;%</span>
 <span class="st">  </span><span class="kw">clean_names</span>() <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">select</span>(<span class="op">-</span><span class="kw">c</span>(<span class="st">&quot;se_fit&quot;</span>, <span class="st">&quot;hat&quot;</span>, <span class="st">&quot;sigma&quot;</span>, <span class="st">&quot;cooksd&quot;</span>, <span class="st">&quot;std_resid&quot;</span>))</code></pre></div>
-<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<table class="table" style="font-size: 16px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
 <th style="text-align:right;">
