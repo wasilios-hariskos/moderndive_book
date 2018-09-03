@@ -219,7 +219,7 @@
 
 \title{Statistical Inference via Data Science in R}
 \author{Chester Ismay and Albert Y. Kim}
-\date{August 20, 2018}
+\date{September 03, 2018}
 
 \begin{document}
 \maketitle
@@ -287,8 +287,9 @@ Students}.
   package.}
 \end{itemize}
 
-This is version 0.4.0.9000 of ModernDive published on August 20, 2018.
-For previous versions of ModernDive, see Section \ref{sec:about-book}.
+This is version 0.4.0.9000 of ModernDive published on September 03,
+2018. For previous versions of ModernDive, see Section
+\ref{sec:about-book}.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -18661,11 +18662,19 @@ like to contribute, please check us out on GitHub at
 \textbf{Please check out our sneak peak of \texttt{infer} below in the
 meanwhile. For more details on \texttt{infer} visit
 \url{https://infer.netlify.com/}}.
-
-/begin\{center\}
-\texttt{r\ include\_image(path\ =\ "images/sign-2408065\_1920.png",\ html\_opts="height=100px",\ \ \ latex\_opts\ =\ "width=20\%")}
-/end\{center\}
 \end{learncheck}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{include_image}\NormalTok{(}\DataTypeTok{path =} \StringTok{"images/sign-2408065_1920.png"}\NormalTok{,}
+              \DataTypeTok{html_opts=}\StringTok{"height=100px"}\NormalTok{,}
+              \DataTypeTok{latex_opts =} \StringTok{"width=20%"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+![](images/sign-2408065_1920.png){ width=20% }
+\end{verbatim}
 
 \section*{Needed packages}\label{needed-packages-10}
 
@@ -18894,7 +18903,7 @@ would apply in this context:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-464-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-465-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a right-tailed test so we will be looking for values that are
@@ -18907,7 +18916,7 @@ greater than or equal to 23.44 for our \(p\)-value.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-465-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-466-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value}
@@ -18976,7 +18985,7 @@ of our confidence interval to be our point estimate
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-469-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-470-1} \end{center}
 
 We see that 23 is not contained in this confidence interval as a
 plausible value of \(\mu\) (the unknown population mean) and the entire
@@ -19261,7 +19270,7 @@ at the simulated proportions of successes:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-472-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-473-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a two-tailed test so we will be looking for values that are 0.8
@@ -19274,7 +19283,7 @@ this is a two-tailed test so we will be looking for values that are 0.8
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-473-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-474-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-1}
@@ -19366,7 +19375,7 @@ for calculating a mean and how R handles logical statements such as
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-477-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-478-1} \end{center}
 
 We see that 0.80 is contained in this confidence interval as a plausible
 value of \(\pi\) (the unknown population proportion). This matches with
@@ -19709,7 +19718,7 @@ for sampling variability.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-482-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-483-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a two-tailed test so we will be looking for values that are
@@ -19723,7 +19732,7 @@ greater than or equal to -0.099 or less than or equal to 0.099 for our
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-483-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-484-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-2}
@@ -19788,7 +19797,7 @@ with \emph{bootstrapping}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-487-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-488-1} \end{center}
 
 We see that 0 is not contained in this confidence interval as a
 plausible value of \(\pi_{college} - \pi_{no\_college}\) (the unknown
@@ -20152,7 +20161,7 @@ for sampling variability.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-491-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-492-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a two-tailed test so we will be looking for values that are
@@ -20166,7 +20175,7 @@ our \(p\)-value.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-492-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-493-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-3}
@@ -20236,7 +20245,7 @@ for Cleveland.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-496-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-497-1} \end{center}
 
 We see that 0 is contained in this confidence interval as a plausible
 value of \(\mu_{sac} - \mu_{cle}\) (the unknown population parameter).
@@ -20559,7 +20568,7 @@ a hypothesized mean difference of 0.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-500-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-501-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a left-tailed test so we will be looking for values that are
@@ -20572,7 +20581,7 @@ less than or equal to 4960.477 for our \(p\)-value.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-501-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-502-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-4}
@@ -20641,7 +20650,7 @@ identical to the pipeline shown in the hypothesis test above except the
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-505-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-506-1} \end{center}
 
 We see that 0 is not contained in this confidence interval as a
 plausible value of \(\mu_{diff}\) (the unknown population parameter).
@@ -20847,11 +20856,11 @@ We can use the sorted table giving the number of flights defined as
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-511-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-512-1} 
 
 }
 
-\caption{Number of flights departing NYC in 2013 by airline - Descending numbers}\label{fig:unnamed-chunk-511}
+\caption{Number of flights departing NYC in 2013 by airline - Descending numbers}\label{fig:unnamed-chunk-512}
 \end{figure}
 
 The last addition here specifies the values of the horizontal \texttt{x}
@@ -20881,7 +20890,7 @@ work with:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{ismaykim_files/figure-latex/unnamed-chunk-513-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{ismaykim_files/figure-latex/unnamed-chunk-514-1} \end{center}
 
 The syntax here is a little different than what we have covered so far.
 The \texttt{dygraph} function is expecting for the dates to be given as

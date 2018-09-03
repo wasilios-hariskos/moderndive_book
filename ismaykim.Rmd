@@ -55,7 +55,8 @@ needed_CRAN_pkgs <- c(
   
   # Explicitly used packages:
   "tidyverse", "rmarkdown", "knitr", "plotly", "janitor", "skimr",
-  "infer", "moderndive",
+  "infer", 
+#  "moderndive",
   
   # Internally used packages:
   "webshot", "mvtnorm", "remotes", "devtools", "dygraphs", "gridExtra", "kableExtra"
@@ -68,9 +69,13 @@ if(length(new_pkgs)) {
 # GitHub packages needed
 if(!"patchwork" %in% installed.packages()){
   # patchwork as of 2018-07-20 needs dev version of ggplot2:
-  devtools::install_github("tidyverse/ggplot2")
-  devtools::install_github("thomasp85/patchwork")
+  remotes::install_github("tidyverse/ggplot2")
+  remotes::install_github("thomasp85/patchwork")
 }
+
+# Try to get table references to work again
+if(!"moderndive" %in% installed.packages())
+  remotes::install_github("moderndive/moderndive", ref = "remove-kable")
 
 # Check that phantomjs is installed to create screenshots of apps
 if(is.null(webshot:::find_phantom()))
@@ -9493,13 +9498,12 @@ This appendix is designed to provide you with examples of the five basic hypothe
 **Note: This appendix is still under construction. If you would like to contribute, please check us out on GitHub at <https://github.com/moderndive/moderndive_book>.**
 
 **Please check out our sneak peak of `infer` below in the meanwhile. For more details on `infer` visit <https://infer.netlify.com/>**.
+```
 
-<center> 
-/begin{center}
-`r include_image(path = "images/sign-2408065_1920.png", html_opts="height=100px",
-  latex_opts = "width=20%")`
-/end{center}
-</center>
+```{r, fig.align='center'}
+include_image(path = "images/sign-2408065_1920.png",
+              html_opts="height=100px",
+              latex_opts = "width=20%")
 ```
 
 <!-- <center>
