@@ -3886,18 +3886,25 @@ With linear regression there is always only one numerical outcome variable $y$ b
 We'll study all four of these regression scenarios using real data, all easily accessible via R packages! <!--We will also discuss the concept of *correlation* and how it is frequently incorrectly used to imply *causation*.-->
 
 
-
-
 ### Needed packages {-}
 
 In this chapter we introduce a new package, `moderndive`, that is an accompaniment package to this ModernDive book. It includes useful functions for linear regression and other functions as well as data used later in the book. Let's now load all the packages needed for this chapter. If needed, read Section \@ref(packages) for information on how to install and load R packages. 
 
-```{r, message=FALSE, warning=FALSE}
+```{r eval=FALSE}
 library(ggplot2)
 library(dplyr)
 library(moderndive)
 library(gapminder)
 library(skimr)
+```
+
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(moderndive)
+library(gapminder)
+# library(skimr) (Causes problems with table linking)
 ```
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE}
@@ -3912,13 +3919,18 @@ library(patchwork)
 library(kableExtra)
 ```
 
+
 ### DataCamp {-}
 
 The introductory basic regression analysis below was the inspiration for a large part of ModernDive co-author [Albert Y. Kim's](https://twitter.com/rudeboybert) DataCamp course "Modeling with Data in the Tidyverse." If you're interested in complementing your learning below in an interactive online environment, click on the image below to access the course. The relevant chapters are Chapter 1 "Introduction to Modeling" and Chapter 2 "Modeling with Basic Regression".
 
 ```{r, echo=FALSE, results='asis', purl=FALSE}
-image_link(path = "images/datacamp_working_with_data.png", link = "https://www.datacamp.com/courses/working-with-data-in-the-tidyverse", html_opts = "height: 150px;",latex_opts = "width=0.3\\textwidth")
+image_link(path = "images/datacamp_working_with_data.png", 
+           link = "https://www.datacamp.com/courses/working-with-data-in-the-tidyverse", 
+           html_opts = "height: 150px;", 
+           latex_opts = "width=0.3\\textwidth")
 ```
+
 
 
 ## One numerical explanatory variable {#model1}
@@ -3991,7 +4003,7 @@ evals_ch6 %>%
 ```{r echo=FALSE, results='asis'}
 evals_ch6 %>% 
   select(score, bty_avg) %>% 
-  skim() %>% 
+  skimr::skim() %>% 
   skimr::kable()
 ```
 
@@ -4508,6 +4520,8 @@ You should look at the raw data values both by bringing up RStudio's spreadsheet
 View(gapminder2007)
 ```
 
+
+
 ```{r model2-data-preview, echo=FALSE}
 gapminder2007 %>%
   sample_n(5) %>%
@@ -4520,16 +4534,22 @@ gapminder2007 %>%
                 latex_options = c("HOLD_position"))
 ```
 
+
 ```{r}
 glimpse(gapminder2007)
 ```
 
 We see that the variable `continent` is indeed categorical, as it is encoded as `fct` which stands for "factor." This is R's way of storing categorical variables. Let's once again apply the `skim()` function from the `skimr` package to our two variables of interest: `continent` and `lifeExp`:
 
-```{r}
+```{r, eval=FALSE}
 gapminder2007 %>% 
   select(continent, lifeExp) %>% 
   skim()
+```
+```{r, echo=FALSE}
+gapminder2007 %>% 
+  select(continent, lifeExp) %>% 
+  skimr::skim()
 ```
 ```{r, echo=FALSE}
 lifeExp_worldwide <- gapminder2007 %>%
@@ -4651,8 +4671,8 @@ gapminder2007 %>%
     digits = 3,
     caption = "Mean life expectancy by continent",
     booktabs = TRUE
-  ) %>% 
-  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16), 
+  ) %>%
+  kable_styling(font_size = ifelse(knitr:::is_latex_output(), 10, 16),
                 latex_options = c("HOLD_position"))
 ```
 
@@ -5163,6 +5183,7 @@ In this chapter, you've seen what we call "basic regression" when you only have 
 
 An R script file of all R code used in this chapter is available [here](scripts/06-regression.R).
 
+
 <!--chapter:end:06-regression.Rmd-->
 
 
@@ -5213,13 +5234,22 @@ Since our regression models will now consider more than one explanatory/predicto
 
 Let's load all the packages needed for this chapter (this assumes you've already installed them). Read Section \@ref(packages) for information on how to install and load R packages.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, eval=FALSE}
 library(ggplot2)
 library(dplyr)
 library(moderndive)
 library(ISLR)
 library(skimr)
 ```
+
+```{r, message=FALSE, warning=FALSE, echo=FALSE}
+library(ggplot2)
+library(dplyr)
+library(moderndive)
+library(ISLR)
+# library(skimr) (Causes problems with table linking)
+```
+
 
 ```{r, message=FALSE, warning=FALSE, echo=FALSE}
 # Packages needed internally, but not in text:
@@ -5294,11 +5324,18 @@ glimpse(Credit)
 
 Let's look at some summary statistics, again using the `skim()` function from the `skimr` package:
 
-```{r}
+```{r eval=FALSE}
 Credit %>% 
   select(Balance, Limit, Income) %>% 
   skim()
 ```
+
+```{r echo=FALSE}
+Credit %>% 
+  select(Balance, Limit, Income) %>% 
+  skimr::skim()
+```
+
 
 We observe for example:
 
@@ -5668,10 +5705,16 @@ evals_ch7 %>%
 
 Let's look at some summary statistics using the `skim()` function from the `skimr` package:
 
-```{r}
+```{r eval=FALSE}
 evals_ch7 %>% 
   skim()
 ```
+
+```{r echo=FALSE}
+evals_ch7 %>% 
+  skimr::skim()
+```
+
 
 Furthermore, let's compute the correlation between two numerical variables we have `score` and `age`. Recall that correlation coefficients only exist between numerical variables. We observe that they are weakly negatively correlated.
 
@@ -6374,7 +6417,7 @@ virtual_samples <- bowl %>%
 
 `virtual_samples` has $50 \times 33 = 1650$ rows, corresponding to 33 samples of size $n=50$, or 33 draws from the shovel. We won't display the contents of this data frame but leave it to you to `View()` this data frame. You'll see that the first 50 rows have `replicate` equal to 1, then the next 50 rows have `replicate` equal to 2, and so on and so forth, up until the last 50 rows which have `replicate` equal to 33. The `replicate` variable denotes which of our 33 samples a particular ball is included in.
 
-Now let's compute the 33 corresponding values of the sample proportion $\widehat{p}$ based on 33 different samples of size $n=50$ by reusing the previous code, but remembering to `group_by` the `replicate` variable first since we want to compute the sample proportion for each of the 33 samples separately. Notice the similarity of this table with Table \@ref(tab:tactile).
+Now let's compute the 33 corresponding values of the sample proportion $\widehat{p}$ based on 33 different samples of size $n=50$ by reusing the previous code, but remembering to `group_by` the `replicate` variable first since we want to compute the sample proportion for each of the 33 samples separately. Notice the similarity of this table with Table \@ref(tab:tactilered).
 
 ```{r, eval=FALSE}
 virtual_prop_red <- virtual_samples %>% 
@@ -6818,7 +6861,7 @@ read_csv("data/ch9_summary_table - Sheet1.csv", na = "") %>%
   column_spec(1, width = "0.5in") %>% 
   column_spec(2, width = "0.7in") %>%
   column_spec(3, width = "1in") %>%
-  column_spec(4, width = "0.7in") %>% 
+  column_spec(4, width = "1.1in") %>% 
   column_spec(5, width = "1in")
 ```
 

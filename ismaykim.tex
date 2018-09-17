@@ -219,7 +219,7 @@
 
 \title{Statistical Inference via Data Science in R}
 \author{Chester Ismay and Albert Y. Kim}
-\date{September 03, 2018}
+\date{September 17, 2018}
 
 \begin{document}
 \maketitle
@@ -287,7 +287,7 @@ Students}.
   package.}
 \end{itemize}
 
-This is version 0.4.0.9000 of ModernDive published on September 03,
+This is version 0.4.0.9000 of ModernDive published on September 17,
 2018. For previous versions of ModernDive, see Section
 \ref{sec:about-book}.
 
@@ -1968,6 +1968,8 @@ health, and development data from the website
 For example, from the 1704 countries included from 2007, consider only
 the first 6 countries when listed alphabetically:
 
+\label{tab:unnamed-chunk-16}Gapminder 2007 Data: First 6 of 142 countries
+
 Country
 
 Continent
@@ -1982,61 +1984,61 @@ Afghanistan
 
 Asia
 
-43.828
+43.83
 
 31889923
 
-974.5803
+974.58
 
 Albania
 
 Europe
 
-76.423
+76.42
 
 3600523
 
-5937.0295
+5937.03
 
 Algeria
 
 Africa
 
-72.301
+72.30
 
 33333216
 
-6223.3675
+6223.37
 
 Angola
 
 Africa
 
-42.731
+42.73
 
 12420476
 
-4797.2313
+4797.23
 
 Argentina
 
 Americas
 
-75.320
+75.32
 
 40301927
 
-12779.3796
+12779.38
 
 Australia
 
 Oceania
 
-81.235
+81.23
 
 20434176
 
-34435.3674
+34435.37
 
 Each row in this table corresponds to a country in 2007. For each row,
 we have 5 columns:
@@ -2099,6 +2101,8 @@ While in this example we are considering one type of \texttt{geom}etric
 object (of type \texttt{point}), graphics are not limited to just
 points. Some plots involve lines while others involve bars. Let's
 summarize the three essential components of the grammar in a table:
+
+\label{tab:unnamed-chunk-17}Summary of Grammar of Graphics for this plot
 
 data variable
 
@@ -3225,6 +3229,8 @@ We see both the \texttt{fruits} and \texttt{fruits\_counted} data frames
 represent the same collection of fruit. Whereas \texttt{fruits} just
 lists the fruit individually:
 
+\label{tab:fruits}Fruits
+
 fruit
 
 apple
@@ -3239,6 +3245,8 @@ orange
 
 \texttt{fruits\_counted} has a variable \texttt{count} which represents
 pre-counted values of each fruit.
+
+\label{tab:fruitscounted}Fruits (Pre-Counted)
 
 fruit
 
@@ -3822,6 +3830,8 @@ the case as we start to map more variables to more of each
 \texttt{geom}etric object's \texttt{aes}thetic attribute options,
 further unlocking the awesome power of the \texttt{ggplot2} package.
 
+\label{tab:viz-summary-table}Summary of 5NG
+
 Named graph
 
 Shows
@@ -4070,6 +4080,8 @@ tables are matched up with observations, variables and types. In
 
 For example, say the following table consists of stock prices:
 
+\label{tab:unnamed-chunk-61}Stock Prices (Non-Tidy Format)
+
 Date
 
 Boeing Stock Price
@@ -4100,6 +4112,8 @@ corresponding to three unique pieces of information (Date, Stock Name,
 and Stock Price), but there are not three columns. In tidy data format
 each variable should be its own column, as shown below. Notice that both
 tables present the same information, but in different formats.
+
+\label{tab:unnamed-chunk-62}Stock Prices (Tidy Format)
 
 Date
 
@@ -4144,6 +4158,8 @@ Google
 \$170.04
 
 However, consider the following table
+
+\label{tab:unnamed-chunk-63}Date, Boeing Price, Weather Data
 
 Date
 
@@ -6245,6 +6261,8 @@ Section \ref{piping}, you'll be able to write easily legible code to
 perform almost all the data wrangling necessary for the rest of this
 book.
 
+\label{tab:wrangle-summary-table}Summary of data wrangling verbs
+
 Verb
 
 Data wrangling operation
@@ -6632,7 +6650,7 @@ randomly chosen rows:
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-165}Random sample of 5 instructors
+\label{tab:unnamed-chunk-166}Random sample of 5 instructors
 
 score
 
@@ -7446,7 +7464,7 @@ instructors in this dataset, corresponding to a single row of
 For example, say we are interested in the 21st instructor in this
 dataset:
 
-\label{tab:unnamed-chunk-178}Data for 21st instructor
+\label{tab:unnamed-chunk-179}Data for 21st instructor
 
 score
 
@@ -7523,7 +7541,7 @@ present the results for the 21st through the 24th instructors.
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-181}Regression points (for only 21st through 24th
+\label{tab:unnamed-chunk-182}Regression points (for only 21st through 24th
 instructor)
 
 ID
@@ -8545,7 +8563,7 @@ correspond to when the explanatory variable \(x\) is categorical? Let's
 investigate these values for the first 10 countries in the
 \texttt{gapminder2007} dataset:
 
-\label{tab:unnamed-chunk-199}First 10 out of 142 countries
+\label{tab:unnamed-chunk-201}First 10 out of 142 countries
 
 country
 
@@ -8661,7 +8679,7 @@ Subsection \ref{model1points} to return
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-201}Regression points (First 10 out of 142
+\label{tab:unnamed-chunk-203}Regression points (First 10 out of 142
 countries)
 
 ID
@@ -8860,7 +8878,7 @@ expectancy:
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-203}Countries in Asia with shortest life expectancy
+\label{tab:unnamed-chunk-205}Countries in Asia with shortest life expectancy
 
 country
 
@@ -9103,12 +9121,12 @@ Let's do this for another arbitrarily chosen instructor whose beauty
 score was \(x=2.333\). The residual in this case is
 \(2.7 - 4.036 = -1.336\).
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-207-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-209-1} \end{center}
 
 Another arbitrarily chosen instructor whose beauty score was \(x=3.667\)
 results in the residual in this case being \(4.4 - 4.125 = 0.2753\).
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-208-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-210-1} \end{center}
 
 Let's do this one more time for another arbitrarily chosen instructor.
 This instructor had a beauty score of \(x = 6\). The residual in this
@@ -9904,7 +9922,7 @@ generalizes the concept of a linear regression line to three dimensions.
 
 }
 
-\caption{Regression plane}\label{fig:unnamed-chunk-228}
+\caption{Regression plane}\label{fig:unnamed-chunk-232}
 \end{figure}
 
 \begin{learncheck}
@@ -10216,11 +10234,11 @@ twice:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-238-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-242-1} 
 
 }
 
-\caption{Residuals vs credit limit and income}\label{fig:unnamed-chunk-238}
+\caption{Residuals vs credit limit and income}\label{fig:unnamed-chunk-242}
 \end{figure}
 
 In this case, there \textbf{does} appear to be a systematic pattern to
@@ -10504,7 +10522,7 @@ to not overwrite the model \texttt{score\_model} from Section
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-246}Regression table
+\label{tab:unnamed-chunk-251}Regression table
 
 term
 
@@ -10648,7 +10666,7 @@ Let's fit a regression with an interaction term. Instead of using the
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-248}Regression table
+\label{tab:unnamed-chunk-253}Regression table
 
 term
 
@@ -10758,7 +10776,7 @@ the values from the regression table the fitted value of
 
 Let's summarize these values in a table:
 
-\label{tab:unnamed-chunk-249}Comparison of male and female intercepts and
+\label{tab:unnamed-chunk-254}Comparison of male and female intercepts and
 age slopes
 
 Gender
@@ -11017,11 +11035,11 @@ income were positively related:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-252-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-257-1} 
 
 }
 
-\caption{Relationship between credit card balance and credit limit/income}\label{fig:unnamed-chunk-252}
+\caption{Relationship between credit card balance and credit limit/income}\label{fig:unnamed-chunk-257}
 \end{figure}
 
 On the other hand, the multiple regression in Table
@@ -11524,6 +11542,9 @@ that we red, and \texttt{prop\_red} is the sample proportion
 \end{Highlighting}
 \end{Shaded}
 
+\label{tab:tactilered}33 sample proportions based on 33 tactile samples with
+n = 50
+
 group
 
 replicate
@@ -11984,7 +12005,7 @@ sampled balls out of 50.
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-261}First 10 sampled balls of 50 in virtual sample
+\label{tab:unnamed-chunk-266}First 10 sampled balls of 50 in virtual sample
 
 replicate
 
@@ -12069,7 +12090,7 @@ number of balls red and the proportion red out of \(n=50\) using our
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-263}Count and proportion red in single virtual
+\label{tab:unnamed-chunk-268}Count and proportion red in single virtual
 sample of size n = 50
 
 replicate
@@ -12127,7 +12148,7 @@ Now let's compute the 33 corresponding values of the sample proportion
 reusing the previous code, but remembering to \texttt{group\_by} the
 \texttt{replicate} variable first since we want to compute the sample
 proportion for each of the 33 samples separately. Notice the similarity
-of this table with Table \ref{tab:tactile}.
+of this table with Table \ref{tab:tactilered}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -12138,6 +12159,9 @@ of this table with Table \ref{tab:tactile}.
 \KeywordTok{View}\NormalTok{(virtual_prop_red)}
 \end{Highlighting}
 \end{Shaded}
+
+\label{tab:virtual-prop-red}33 sample proportions red based on 33 virtual
+samples with n=50
 
 replicate
 
@@ -12668,6 +12692,8 @@ proportions \(\widehat{p}\), in other words we are quantifying how much
 \textbf{Comparison}: Let's compare the 3 standard errors we computed
 above in Table \ref{tab:comparingn}:
 
+\label{tab:comparingn}Comparing the SE for different n
+
 n
 
 SE
@@ -13041,6 +13067,9 @@ Table \ref{tab:summarytable}. In all 7 cases, the point estimate/sample
 statistic \emph{estimates} the unknown population parameter. It does so
 by computing summary statistics based on a sample of size \(n\).
 
+\label{tab:summarytable}\label{tab:summarytable}Scenarios of sampling for
+inference
+
 Scenario
 
 Population parameter
@@ -13264,7 +13293,7 @@ First, let's visualize the values in this sample as a histogram:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-289-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-294-1} \end{center}
 
 We see a roughly symmetric distribution here that has quite a few values
 near 20 years in age with only a few larger than 40 years or smaller
@@ -13359,7 +13388,7 @@ Let's visualize what this new bootstrap sample looks like:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-293-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-298-1} \end{center}
 
 We now have another sample from what we could assume comes from the
 population of interest. We can similarly calculate the sample mean of
@@ -13445,7 +13474,7 @@ looks like to further understand this variability.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-296-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-301-1} \end{center}
 
 We can also look at the six different means using \texttt{dplyr} syntax:
 
@@ -13755,7 +13784,7 @@ interval values.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-309-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-314-1} \end{center}
 
 The shape of this resulting distribution may look familiar to you. It
 resembles the well-known normal (bell-shaped) curve.
@@ -13797,7 +13826,7 @@ statistic \texttt{obs\_stat} argument the value of the point estimate
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-311-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-316-1} \end{center}
 
 We can also compute the mean of the bootstrap distribution of means to
 see how it compares to \texttt{x\_bar}:
@@ -13879,7 +13908,7 @@ the \texttt{endpoints} and \texttt{direction} arguments, setting
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-315-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-320-1} \end{center}
 
 You can see that 95\% of the data stored in the \texttt{stat} variable
 in \texttt{bootstrap\_distribution} falls between the two endpoints with
@@ -13949,7 +13978,7 @@ confidence interval.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-318-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-323-1} \end{center}
 
 We see that both methods produce nearly identical confidence intervals
 with the percentile method being \([20.97, 29.25]\) and the standard
@@ -13975,7 +14004,7 @@ begin by understanding some of the properties of the
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-319-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-324-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14005,7 +14034,7 @@ median values.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-321-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-326-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14074,11 +14103,11 @@ will be done to help remember that \texttt{"salmon"} corresponds to
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-325-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-330-1} 
 
 }
 
-\caption{Sampling distribution for n=40 samples of pennies}\label{fig:unnamed-chunk-325}
+\caption{Sampling distribution for n=40 samples of pennies}\label{fig:unnamed-chunk-330}
 \end{figure}
 
 We can also examine the variability in this sampling distribution by
@@ -14114,7 +14143,7 @@ distribution blue to further assist with remembering which is which.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-327-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-332-1} \end{center}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -14252,7 +14281,7 @@ sample. We will plot each of these confidence intervals as horizontal
 lines. We will also show a line corresponding to the known population
 value of 21.152 years.
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-335-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-340-1} \end{center}
 
 Of the 100 confidence intervals based on samples of size \(n = 40\), 96
 of them captured the population mean \(\mu = 21.152\), whereas 4 of them
@@ -14268,7 +14297,7 @@ using 90\% confidence intervals instead. This time we will use the
 standard error method instead of the percentile method for computing the
 confidence intervals.
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-336-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-341-1} \end{center}
 
 Of the 100 confidence intervals based on samples of size \(n = 40\), 87
 of them captured the population mean \(\mu = 21.152\), whereas 13 of
@@ -14394,7 +14423,7 @@ well to better see the resulting shape.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-344-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-349-1} \end{center}
 
 We see that the resulting distribution is symmetric and bell-shaped so
 it doesn't much matter which confidence interval method we choose. Let's
@@ -14422,7 +14451,7 @@ use the standard error method to create a 95\% confidence interval.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-346-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-351-1} \end{center}
 
 We are 95\% confident that the true proportion of red balls in the bowl
 is between 0.284 and years. This level of confidence is based on the
@@ -14537,6 +14566,9 @@ wrangling tools seen in Chapter \ref{wrangling}:
 \NormalTok{conf_ints}
 \end{Highlighting}
 \end{Shaded}
+
+\label{tab:unnamed-chunk-354}33 confidence intervals from 33 tactile samples
+of size n=50
 
 group
 
@@ -15487,7 +15519,7 @@ as done below.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-361-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-366-1} \end{center}
 
 This distribution is roughly symmetric and bell-shaped but isn't quite
 there. Let's use the percentile-based method to compute a 95\%
@@ -15704,7 +15736,7 @@ is for BOS and SFO, let's look at a boxplot:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-373-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-378-1} \end{center}
 
 Since there is no overlap at all, we can conclude that the
 \texttt{air\_time} for San Francisco flights is statistically greater
@@ -15904,7 +15936,7 @@ observe the following table:
 
 }
 
-\caption{Type I and Type II errors}\label{fig:unnamed-chunk-374}
+\caption{Type I and Type II errors}\label{fig:unnamed-chunk-379}
 \end{figure}
 
 If we are using sample data to make inferences about a parameter, we run
@@ -16156,11 +16188,11 @@ appropriate here before you proceed:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-382-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-387-1} 
 
 }
 
-\caption{Rating vs genre in the population}\label{fig:unnamed-chunk-382}
+\caption{Rating vs genre in the population}\label{fig:unnamed-chunk-387}
 \end{figure}
 
 We can see that the middle 50\% of ratings for \texttt{"Action"} movies
@@ -16256,11 +16288,11 @@ population distributions of movie ratings for \texttt{"Action"} and
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-385-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-390-1} 
 
 }
 
-\caption{Genre vs rating for our sample}\label{fig:unnamed-chunk-385}
+\caption{Genre vs rating for our sample}\label{fig:unnamed-chunk-390}
 \end{figure}
 
 \begin{Shaded}
@@ -16273,11 +16305,11 @@ population distributions of movie ratings for \texttt{"Action"} and
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-386-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-391-1} 
 
 }
 
-\caption{Genre vs rating for our sample as faceted histogram}\label{fig:unnamed-chunk-386}
+\caption{Genre vs rating for our sample as faceted histogram}\label{fig:unnamed-chunk-391}
 \end{figure}
 
 \begin{learncheck}
@@ -16504,11 +16536,11 @@ means:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-398-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-403-1} 
 
 }
 
-\caption{Simulated differences in means histogram}\label{fig:unnamed-chunk-398}
+\caption{Simulated differences in means histogram}\label{fig:unnamed-chunk-403}
 \end{figure}
 
 \subsection{The p-value}\label{the-p-value}
@@ -16528,11 +16560,11 @@ distribution to show a visual representation of our \(p\)-value:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-399-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-404-1} 
 
 }
 
-\caption{Shaded histogram to show p-value}\label{fig:unnamed-chunk-399}
+\caption{Shaded histogram to show p-value}\label{fig:unnamed-chunk-404}
 \end{figure}
 
 Remember that the observed difference in means was 0.95. We have shaded
@@ -16551,11 +16583,11 @@ also increase the number of bins to 100 here from 20:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-400-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-405-1} 
 
 }
 
-\caption{Histogram with vertical lines corresponding to observed statistic}\label{fig:unnamed-chunk-400}
+\caption{Histogram with vertical lines corresponding to observed statistic}\label{fig:unnamed-chunk-405}
 \end{figure}
 
 At this point, it is important to take a guess as to what the
@@ -16734,7 +16766,7 @@ gives how many standard deviations away that value is from its mean.
 \(z\)-scores are normally distributed with mean 0 and standard deviation
 1. They have the common, bell-shaped pattern seen below.
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-405-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-410-1} \end{center}
 
 Recall, that we hardly ever know the mean and standard deviation of the
 population of interest. This is almost always the case when considering
@@ -16801,11 +16833,11 @@ randomization above. Recall this distribution:
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-406-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-411-1} 
 
 }
 
-\caption{Simulated differences in means histogram}\label{fig:unnamed-chunk-406}
+\caption{Simulated differences in means histogram}\label{fig:unnamed-chunk-411}
 \end{figure}
 
 The \texttt{infer} package also includes some built-in theory-based
@@ -16833,7 +16865,7 @@ We can now created a null distribution of \(t\) statistics:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-408-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-413-1} \end{center}
 
 We see that the shape of this \texttt{stat\ =\ "t"} distribution is the
 same as that of \texttt{stat\ =\ "diff\ in\ means"}. The scale has
@@ -16853,7 +16885,7 @@ but instead it looks at the \(t\)-curve with degrees of freedom equal to
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-409-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-414-1} \end{center}
 
 We can see that the curve does a good job of approximating the
 randomization distribution here. (More on when to expect for this to be
@@ -16885,7 +16917,7 @@ that are at or above 2.945 or at or below -2.945.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-411-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-416-1} \end{center}
 
 As we might have expected with this just being a standardization of the
 difference in means statistic that produced a small \(p\)-value, we also
@@ -17125,7 +17157,7 @@ perform the permuting instead of bootstrapping.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-421-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-426-1} \end{center}
 
 In viewing the distribution above with shading to the right of our
 observed slope value of 0.067, we can see that we expect the p-value to
@@ -17208,7 +17240,7 @@ slope value, we can use the process of bootstrapping:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-427-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-432-1} \end{center}
 
 Next we can use the \texttt{get\_ci()} function to determine the
 confidence interval. Let's do this in two different ways obtaining 99\%
@@ -17407,7 +17439,7 @@ Second, the regression with an interaction effect: note the use of
 \end{Highlighting}
 \end{Shaded}
 
-\label{tab:unnamed-chunk-434}Model 2: Regression table with interaction
+\label{tab:unnamed-chunk-439}Model 2: Regression table with interaction
 effect included
 
 term
@@ -17935,6 +17967,9 @@ log-transformations allow us to focus on multiplicative changes instead
 of additive ones, thereby emphasizing changes in ``orders of
 magnitude.'' Let's illustrate this idea in Table \ref{tab:logten} with
 examples of prices of consumer goods in US dollars.
+
+\label{tab:logten}log10-transformed prices, orders of magnitude, and
+examples
 
 Price
 
@@ -18538,7 +18573,7 @@ of \texttt{geom\_point()}:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-456-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-461-1} \end{center}
 
 We see a big valley occurring just before January 1st, 2000, mostly
 likely due to the holiday season. However, what about the major peak of
@@ -18903,7 +18938,7 @@ would apply in this context:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-465-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-470-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a right-tailed test so we will be looking for values that are
@@ -18916,7 +18951,7 @@ greater than or equal to 23.44 for our \(p\)-value.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-466-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-471-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value}
@@ -18985,7 +19020,7 @@ of our confidence interval to be our point estimate
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-470-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-475-1} \end{center}
 
 We see that 23 is not contained in this confidence interval as a
 plausible value of \(\mu\) (the unknown population mean) and the entire
@@ -19270,7 +19305,7 @@ at the simulated proportions of successes:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-473-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-478-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a two-tailed test so we will be looking for values that are 0.8
@@ -19283,7 +19318,7 @@ this is a two-tailed test so we will be looking for values that are 0.8
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-474-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-479-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-1}
@@ -19375,7 +19410,7 @@ for calculating a mean and how R handles logical statements such as
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-478-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-483-1} \end{center}
 
 We see that 0.80 is contained in this confidence interval as a plausible
 value of \(\pi\) (the unknown population proportion). This matches with
@@ -19718,7 +19753,7 @@ for sampling variability.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-483-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-488-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a two-tailed test so we will be looking for values that are
@@ -19732,7 +19767,7 @@ greater than or equal to -0.099 or less than or equal to 0.099 for our
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-484-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-489-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-2}
@@ -19797,7 +19832,7 @@ with \emph{bootstrapping}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-488-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-493-1} \end{center}
 
 We see that 0 is not contained in this confidence interval as a
 plausible value of \(\pi_{college} - \pi_{no\_college}\) (the unknown
@@ -20161,7 +20196,7 @@ for sampling variability.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-492-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-497-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a two-tailed test so we will be looking for values that are
@@ -20175,7 +20210,7 @@ our \(p\)-value.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-493-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-498-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-3}
@@ -20245,7 +20280,7 @@ for Cleveland.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-497-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-502-1} \end{center}
 
 We see that 0 is contained in this confidence interval as a plausible
 value of \(\mu_{sac} - \mu_{cle}\) (the unknown population parameter).
@@ -20568,7 +20603,7 @@ a hypothesized mean difference of 0.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-501-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-506-1} \end{center}
 
 We can next use this distribution to observe our \(p\)-value. Recall
 this is a left-tailed test so we will be looking for values that are
@@ -20581,7 +20616,7 @@ less than or equal to 4960.477 for our \(p\)-value.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-502-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-507-1} \end{center}
 
 \paragraph{\texorpdfstring{Calculate
 \(p\)-value}{Calculate p-value}}\label{calculate-p-value-4}
@@ -20650,7 +20685,7 @@ identical to the pipeline shown in the hypothesis test above except the
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-506-1} \end{center}
+\begin{center}\includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-511-1} \end{center}
 
 We see that 0 is not contained in this confidence interval as a
 plausible value of \(\mu_{diff}\) (the unknown population parameter).
@@ -20856,11 +20891,11 @@ We can use the sorted table giving the number of flights defined as
 
 \begin{figure}
 
-{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-512-1} 
+{\centering \includegraphics[width=\textwidth]{ismaykim_files/figure-latex/unnamed-chunk-517-1} 
 
 }
 
-\caption{Number of flights departing NYC in 2013 by airline - Descending numbers}\label{fig:unnamed-chunk-512}
+\caption{Number of flights departing NYC in 2013 by airline - Descending numbers}\label{fig:unnamed-chunk-517}
 \end{figure}
 
 The last addition here specifies the values of the horizontal \texttt{x}
@@ -20890,7 +20925,7 @@ work with:
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{ismaykim_files/figure-latex/unnamed-chunk-514-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{ismaykim_files/figure-latex/unnamed-chunk-519-1} \end{center}
 
 The syntax here is a little different than what we have covered so far.
 The \texttt{dygraph} function is expecting for the dates to be given as
