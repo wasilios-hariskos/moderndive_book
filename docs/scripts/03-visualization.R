@@ -61,12 +61,12 @@ alaska_flights <- flights %>%
 ## **Learning Check Solutions**
 
 ## ----noalpha, fig.cap="Arrival Delays vs Departure Delays for Alaska Airlines flights from NYC in 2013", message=TRUE----
-ggplot(data = all_alaska_flights, 
+ggplot(data = alaska_flights, 
        mapping = aes(x = dep_delay, y = arr_delay)) + 
   geom_point()
 
 ## ----nolayers, fig.cap="Plot with No Layers"-----------------------------
-ggplot(data = all_alaska_flights, 
+ggplot(data = alaska_flights, 
        mapping = aes(x = dep_delay, y = arr_delay))
 
 ## **Learning Check Solutions**
@@ -76,7 +76,7 @@ ggplot(data = alaska_flights, mapping = aes(x = dep_time, y = dep_delay)) +
   geom_point()
 
 ## ----alpha, fig.cap="Delay scatterplot with alpha=0.2"-------------------
-ggplot(data = all_alaska_flights, 
+ggplot(data = alaska_flights, 
        mapping = aes(x = dep_delay, y = arr_delay)) + 
   geom_point(alpha = 0.2)
 
@@ -102,12 +102,12 @@ ggplot(data = jitter_example, mapping = aes(x = x, y = y)) +
   labs(title = "Jittered scatterplot")
 
 ## ----jitter, fig.cap="Jittered delay scatterplot"------------------------
-ggplot(data = all_alaska_flights, 
+ggplot(data = alaska_flights, 
        mapping = aes(x = dep_delay, y = arr_delay)) + 
   geom_jitter(width = 30, height = 30)
 
 ## ---- eval = FALSE-------------------------------------------------------
-## ggplot(data = all_alaska_flights,
+## ggplot(data = alaska_flights,
 ##        mapping = aes(x = dep_delay, y = arr_delay)) +
 ##   geom_jitter(width = 30, height = 30)
 
